@@ -1,0 +1,187 @@
+import React, { createContext, useContext, useState } from 'react';
+
+const LanguageContext = createContext();
+
+const translations = {
+  bs: {
+
+    loginWelcome: "Dobrodošli nazad",
+    loginSubtitle: "Prijavite se na administratorski panel",
+    loginUsername: "Korisničko ime",
+    loginUsernamePlaceholder: "Unesite korisničko ime",
+    loginPassword: "Lozinka",
+    loginBtn: "Prijavi se",
+    loginError: "Pogrešno korisničko ime ili lozinka!",
+    loginCredentials: "Podaci",
+    kpiBookings: "Broj rezervacija",
+    kpiPassengers: "Broj putnika",
+    chartRevenueTitle: "Prihod po mjesecima (BAM)",
+    chartContinentTitle: "Popularnost po kontinentima",
+    passwordChangedSuccess: "Lozinka je uspješno promijenjena!",
+    currentPasswordIncorrect: "Trenutna lozinka nije ispravna!",
+    passwordsDoNotMatch: "Lozinke se ne podudaraju!",
+    success: "Uspješno",
+    error: "Greška",
+    welcomeAdmin: "Dobrodošli nazad",
+    agencyDashboard: "Zaslon agencije",
+    availableTours: "Dostupni aranžmani",
+    passengerRegister: "Registar putnika",
+    systemSettings: "Podešavanja",
+    deleteBtn: "Obriši",
+    dashboardSubtitle: "Pregled prodaje turističkih aranžmana, aktivnih putnika i logistike na terenu.",
+    kpiRevenue: "Ukupan prihod (Aranžmani)",
+    kpiActive: "Aktivni putnici na terenu",
+    kpiSold: "Prodati paketi (Ova sedmica)",
+    kpiBuses: "Aktivni autobusi / Čarteri",
+    stable: "Stabilno",
+    fromLastMonth: "od prošlog mjeseca",
+    chartSeasonTitle: "Sezonska analiza prodaje aranžmana (KM)",
+    chartCategoryTitle: "Popularnost kategorija",
+    catEuro: "Evropski gradovi",
+    catSummer: "Ljetovanja",
+    catExotic: "Daleke destinacije",
+
+    regionsTitle: "Turističke regije",
+    regionsSubtitle: "Odaberite kontinent da biste pristupili menadžmentu konkretnih aranžmana.",
+    toursInContinent: "Aranžmani: ",
+    toursSubtitle: "Pregled trenutno slobodnih kapaciteta i rezervacija za kontinent: ",
+    backBtn: "Nazad",
+    activePrograms: "Aktivni aranžmani",
+    programsCount: "programa",
+    booked: "Prijavljeno",
+    capacity: "Kapacitet",
+    occupancy: "Popunjenost",
+    soldOut: "Rasprodato!",
+    onlyFewSeats: "Samo još {seats} mjesta!",
+    freeSeats: "Slobodno ({seats})",
+    editTour: "Uredi aranžman",
+    passengersSubtitle: "Pregled aktivnih rezervacija, uplaćenih aranžmana i statusa finansijskih transakcija.",
+    newBooking: "Nova rezervacija",
+    searchPlaceholder: "Pretraži po putniku ili destinaciji...",
+    thPassenger: "Putnik",
+    thTour: "Odabrani aranžman",
+    thStatus: "Status uplate",
+    thManage: "Upravljanje",
+    statusPaid: "Plaćeno",
+    statusPartial: "Djelimično",
+    statusCanceled: "Otkazano",
+    noBookings: "Nema pronađenih rezervacija.",
+
+    settingsSubtitle: "Prilagodite izgled panela i upravljajte bezbjednošću profila.",
+    appAppearance: "Izgled aplikacije",
+    appearanceDesc: "Odaberite vizuelnu temu koja najviše odgovara vašem radnom okruženju.",
+    lightModeLabel: "Svijetli režim (Light Mode)",
+    darkModeLabel: "Tamni režim (Dark Mode)",
+    themeDesc: "Promjena vizuelne teme cijelog interfejsa.",
+    themeToggleBtn: "Prebaci na ",
+    themeToggleDark: "Tamni",
+    themeToggleLight: "Svijetli",
+    securityTitle: "Bezbjednost i Lozinka",
+    currentPassword: "Trenutna lozinka",
+    newPassword: "Nova lozinka",
+    confirmPassword: "Potvrdite novu lozinku",
+    minCharacters: "Minimalno 8 karaktera",
+    repeatPassword: "Ponovite novu lozinku",
+    saveChanges: "Sačuvaj izmjene"
+  },
+  en: {
+
+    loginWelcome: "Welcome Back",
+    loginSubtitle: "Sign in to access your admin panel",
+    loginUsername: "Username",
+    loginUsernamePlaceholder: "Enter username",
+    loginPassword: "Password",
+    loginBtn: "Sign In",
+    loginError: "Invalid username or password!",
+    loginCredentials: "Credentials",
+    passwordChangedSuccess: "Password successfully changed!",
+    currentPasswordIncorrect: "Current password is incorrect!",
+    passwordsDoNotMatch: "Passwords do not match!",
+    success: "Success",
+    error: "Error",
+    kpiBookings: "Bookings",
+    kpiPassengers: "Passengers",
+    chartRevenueTitle: "Revenue by month (BAM)",
+    chartContinentTitle: "Popularity by continent",
+    welcomeAdmin: "Welcome back",
+    agencyDashboard: "Agency Dashboard",
+    availableTours: "Available Tours",
+    passengerRegister: "Passenger Register",
+    systemSettings: "Settings",
+    deleteBtn: "Delete",
+    dashboardSubtitle: "Overview of tourist arrangements, active passengers, and on-field logistics.",
+    kpiRevenue: "Total Revenue (Tours)",
+    kpiActive: "Active On-Field Passengers",
+    kpiSold: "Packages Sold (This Week)",
+    kpiBuses: "Active Buses / Charters",
+    stable: "Stable",
+    fromLastMonth: "from last month",
+    chartSeasonTitle: "Seasonal Tour Sales Analysis (KM)",
+    chartCategoryTitle: "Category Popularity",
+    catEuro: "European Cities",
+    catSummer: "Summer Holidays",
+    catExotic: "Long-Haul Destinations",
+
+    regionsTitle: "Tourist Regions",
+    regionsSubtitle: "Select a continent to access the management of specific arrangements.",
+    toursInContinent: "Tours: ",
+    toursSubtitle: "Overview of current free capacities and bookings for continent: ",
+    backBtn: "Back",
+    activePrograms: "Active tours",
+    programsCount: "programs",
+    booked: "Booked",
+    capacity: "Capacity",
+    occupancy: "Occupancy",
+    soldOut: "Sold Out!",
+    onlyFewSeats: "Only {seats} seats left!",
+    freeSeats: "Available ({seats})",
+    editTour: "Edit Arrangement",
+
+    passengersSubtitle: "Overview of active reservations, paid packages, and financial transaction statuses.",
+    newBooking: "New Booking",
+    searchPlaceholder: "Search by passenger or destination...",
+    thPassenger: "Passenger",
+    thTour: "Selected Tour",
+    thStatus: "Payment Status",
+    thManage: "Management",
+    statusPaid: "Paid",
+    statusPartial: "Partial",
+    statusCanceled: "Canceled",
+    noBookings: "No bookings found.",
+
+    settingsSubtitle: "Customize the layout of the panel and manage profile security securely.",
+    appAppearance: "Application Appearance",
+    appearanceDesc: "Select a visual theme that best suits your work environment.",
+    lightModeLabel: "Light Mode",
+    darkModeLabel: "Dark Mode",
+    themeDesc: "Change the visual theme of the entire interface.",
+    themeToggleBtn: "Switch to ",
+    themeToggleDark: "Dark",
+    themeToggleLight: "Light",
+    securityTitle: "Security & Password",
+    currentPassword: "Current Password",
+    newPassword: "New Password",
+    confirmPassword: "Confirm New Password",
+    minCharacters: "Minimum 8 characters",
+    repeatPassword: "Repeat new password",
+    saveChanges: "Save Changes"
+  }
+};
+
+export function LanguageProvider({ children }) {
+  const [lang, setLang] = useState('bs');
+
+  const t = (key) => {
+    return translations[lang][key] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  return useContext(LanguageContext);
+}

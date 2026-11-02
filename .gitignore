@@ -1,0 +1,38 @@
+# Node.js
+frontend/node_modules/
+frontend/dist/
+
+# Environment variables
+frontend/.env
+frontend/.env.*
+backend/.env
+backend/.env.*
+
+# Java / Maven
+backend/target/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+Thumbs.db
+**/application-local.properties
+
+# Build and dependency folders
+**/node_modules/
+**/dist/
+**/target/
+
+# Local configuration and secrets
+**/application-local.properties
+**/.env
+**/.env.*
+
+# Passenger photos
+**/uploads/passengers/
